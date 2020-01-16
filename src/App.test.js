@@ -1,30 +1,27 @@
 import { total } from "./App";
-// import { add, total } from "./App";
 
-// create mock function
-// - useful for:
-//    checking a function is called
-//    calling a function when not available e.g. import or db call
-const add = jest.fn(() => 3); //  auto return 3
+// mock test: e.g. the add function calls an API,
+// however in our tests we don't want to have to wait for that
+// so we import the add function then mock the path so that the
+// add function is not called
+import { add } from "./add";
 
-// Unit Test
-// only tests one thing
-test("add", () => {
-  // const value = add(1, 2);
-  // expect(value).toBe(3);
-  expect(add(1, 2)).toBe(3);
-  // expect(add(5, 2)).toBe(7);
-  // expect(add(-5, 2)).toBe(-3);
-
-  //  expect this function to be called this many times
-  expect(add).toHaveBeenCalledTimes(1);
-
-  //  expect this function to be called with these params
-  expect(add).toHaveBeenCalledWith(1, 2);
-});
+// mock the function
+// can add multiple values to this as an object
+jest.mock("./add", () => ({
+  add: jest.fn(() => 25)
+}));
 
 // Integration Test
 // code working together between components
-// test("total", () => {
-//   expect(total(5, 20)).toBe(`$25`);
-// });
+test("total", () => {
+  expect(total(5, 20)).toBe(`$25`);
+  // we can check on calling the function cos it's a mock function
+  expect(add).toHaveBeenCalledTimes(1);
+
+  // redundant
+  // now we can change the output of the mock function
+  add.mockImplementation(() => 30);
+  expect(total(5, 25)).toBe(`$30`);
+  expect(add).toHaveBeenCalledTimes(2);
+});
