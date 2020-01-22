@@ -5,13 +5,20 @@ import Counter from "./Counter";
 
 // test the Counter component
 test(<Counter />, () => {
-  const wrapper = render(<Counter />);
+  // const wrapper = render(<Counter />);
+  const { debug, getByTestId } = render(<Counter />);
+
   // show the tree so far
-  wrapper.debug();
-  // find a DOM node, then output it's content
-  console.log(wrapper.getByText("0").textContent);
-  // find what kind of elements is holding this
-  console.log(wrapper.getByText("0").tagName);
+  // wrapper.debug();
+  debug();
+
   // test this
-  expect(wrapper.getByText("0").tagName).toBe("BUTTON");
+  // expect(wrapper.getByText("0").tagName).toBe("BUTTON");
+  // expect(wrapper.getByTestId("counter-button").tagName).toBe("BUTTON");
+  // expect(wrapper.getByTestId("counter-button").textContent).toBe("0");
+
+  // assert it's a BUTTON
+  expect(getByTestId("counter-button").tagName).toBe("BUTTON");
+  // assert it starts at 0
+  expect(getByTestId("counter-button").textContent).toBe("0");
 });
