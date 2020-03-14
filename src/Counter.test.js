@@ -16,9 +16,9 @@ test(<Counter />, () => {
   const counterButton = getByTestId("counter-button");
 
   // test this
-  // expect(wrapper.getByText("0").tagName).toBe("BUTTON");
-  // expect(wrapper.getByTestId("counter-button").tagName).toBe("BUTTON");
-  // expect(wrapper.getByTestId("counter-button").textContent).toBe("0");
+  // expect(wrapper.getByText('0').tagName).toBe('BUTTON');
+  // expect(wrapper.getByTestId('counter-button').tagName).toBe('BUTTON');
+  // expect(wrapper.getByTestId('counter-button').textContent).toBe('0');
 
   // assert it's a BUTTON
   expect(counterButton.tagName).toBe("BUTTON");
