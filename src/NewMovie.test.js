@@ -10,7 +10,9 @@ test("<NewMovie />", () => {
   // getByTestId will break if the elemnt is not found
   // queryByTestId may or may not find the element but won't break the test
   // you can use the assertion to specify whether finding the element is a good or bad thing
-  const { debug, getByTestId, queryByTestId, container } = render(<NewMovie />);
+  const { debug, getByTestId, queryByTestId, container, getByText } = render(
+    <NewMovie />
+  );
   expect(getByTestId("page-title").textContent).toBe("New Movie");
   expect(queryByTestId("movie-form")).toBeTruthy();
 
@@ -23,5 +25,8 @@ test("<NewMovie />", () => {
   // - you can fix the error or press "u" in the console to update the snapshot
   expect(container.firstChild).toMatchSnapshot();
 
-  debug();
+  // check form is submitting properly
+  fireEvent.click(getByText("Submit"));
+
+  // debug();
 });
