@@ -7,13 +7,13 @@ import Counter from "./Counter";
 afterEach = cleanup;
 
 // test the Counter component
-test(<Counter />, () => {
+test("<Counter />", () => {
   // const wrapper = render(<Counter />);
   const { debug, getByTestId } = render(<Counter />);
 
   // show the tree so far
   // wrapper.debug();
-  debug();
+  // debug();
 
   // get the button
   const counterButton = getByTestId("counter-button");
@@ -37,5 +37,5 @@ test(<Counter />, () => {
   expect(counterButton.textContent).toBe("2");
 
   // show the tree so far
-  debug();
+  // debug();
 });
