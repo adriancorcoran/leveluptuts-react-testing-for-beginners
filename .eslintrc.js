@@ -25,6 +25,7 @@ module.exports = {
   },
   globals: {
     test: true,
-    expect: true
+    expect: true,
+    afterEach: true
   }
 };
