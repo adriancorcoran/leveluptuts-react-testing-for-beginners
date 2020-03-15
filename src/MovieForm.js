@@ -10,7 +10,14 @@ class MovieForm extends Component {
     const { text } = this.state;
     return (
       <form data-testid="movie-form" onSubmit={() => submitForm({ text })}>
-        <input type="text" />
+        <label htmlFor="text">
+          Text
+          <input
+            type="text"
+            id="text"
+            onChange={e => this.setState({ text: e.target.value })}
+          />
+        </label>
         <button>Submit</button>
       </form>
     );
