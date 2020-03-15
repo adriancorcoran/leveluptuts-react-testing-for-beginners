@@ -1,7 +1,7 @@
 import React from "react";
 // clean up cleans up the dom tree after testing
 import { render, cleanup, fireEvent } from "react-testing-library";
-import MovieForm from "./MovieForm";
+import MovieForm from "../MovieForm";
 
 // runs after each test and resets the data for the next test
 afterEach = cleanup;

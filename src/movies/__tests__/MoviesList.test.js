@@ -9,7 +9,7 @@ import {
   getAllByTestId
 } from "react-testing-library";
 import { MemoryRouter } from "react-router-dom";
-import MoviesList from "./MoviesList";
+import MoviesList from "../MoviesList";
 
 // sets the fetch method for the entire test suite to come from the mock
 global.fetch = require("jest-fetch-mock");
@@ -27,6 +27,7 @@ console.error = jest.fn();
 // fake data
 
 const movies = {
+  success: true,
   results: [
     {
       id: 1,
@@ -67,4 +68,19 @@ test("<MoviesList />", async () => {
   expect(getAllByTestId("movie-link").length).toBe(movies.results.length);
 
   // debug();
+});
+
+test("<MoviesList /> api fail", async () => {
+  // mock the api failing
+  movies.success = false;
+  // mock the api
+  fetch.mockResponseOnce(JSON.stringify(movies));
+  const { debug, getByTestId, queryByTestId, getAllByTestId, within } = render(
+    // this fakes the react router so we don't get the
+    // "Invariant Violation: You should not use <Link> outside a <Router>" error
+    <MemoryRouter>
+      <MoviesList />
+    </MemoryRouter>
+  );
+  expect(getByTestId("loading")).toBeTruthy();
 });

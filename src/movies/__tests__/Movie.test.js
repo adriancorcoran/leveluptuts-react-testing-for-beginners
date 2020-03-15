@@ -2,7 +2,7 @@ import React from "react";
 // clean up cleans up the dom tree after testing
 import { render, cleanup } from "react-testing-library";
 import { MemoryRouter } from "react-router-dom";
-import Movie, { POSTER_PATH } from "./Movie";
+import Movie, { POSTER_PATH } from "../Movie";
 
 // runs after each test and resets the data for the next test
 afterEach(() => {

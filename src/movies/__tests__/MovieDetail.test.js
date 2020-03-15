@@ -7,7 +7,7 @@ import {
   waitForElement,
   getByText
 } from "react-testing-library";
-import MovieDetail, { POSTER_PATH } from "./MovieDetail";
+import MovieDetail, { POSTER_PATH } from "../MovieDetail";
 
 // sets the fetch method for the entire test suite to come from the mock
 global.fetch = require("jest-fetch-mock");
