@@ -39,3 +39,9 @@ test("<Counter />", () => {
   // show the tree so far
   // debug();
 });
+
+// coverage report
+// Function coverage Has each function (or subroutine) in the program been called?
+// Statement coverage Has each statement in the program been executed?
+// Branch coverage Has each branch (also called DD-path) of each control structure (such as in if and case statements) been executed? For example, given an if statement, have both the true and false branches been executed? Another way of saying this is, has every edge in the program been executed?
+// Line coverage has each executable line in the source file been executed?
