@@ -22,7 +22,7 @@ test("<Movie />", () => {
 const movie = {
   title: "My Movie",
   poster_path: "My_Poster.jpg",
-  id: "23"
+  id: 23
 };
 
 test("<Movie /> with movie", () => {
