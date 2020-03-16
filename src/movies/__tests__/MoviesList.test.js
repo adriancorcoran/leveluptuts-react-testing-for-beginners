@@ -27,7 +27,6 @@ console.error = jest.fn();
 // fake data
 
 const movies = {
-  success: true,
   results: [
     {
       id: 1,
